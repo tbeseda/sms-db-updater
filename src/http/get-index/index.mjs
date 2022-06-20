@@ -33,19 +33,19 @@ export const handler = arc.http.async(async function () {
     html: /*html*/`
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SMS to Dynamo</title>
-  <style>${styles}</style>
-</head>
-<body>
-  <h1>${bannerThing?.data?.text || null}</h1>
-  <details>
-    <summary>Banner data</summary>
-    <pre>${JSON.stringify(bannerThing, null, 2)}</pre>
-  </details>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SMS to Dynamo</title>
+    <style>${styles}</style>
+  </head>
+  <body>
+    <h1>${bannerThing?.data?.text || null}</h1>
+    <details>
+      <summary>Banner data</summary>
+      <pre>${JSON.stringify(bannerThing, null, 2)}</pre>
+    </details>
+  </body>
 </html>
       `,
   };

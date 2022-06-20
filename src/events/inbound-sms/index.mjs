@@ -1,4 +1,4 @@
-const arc = require('@architect/functions');
+import arc from '@architect/functions';
 
 export const handler = arc.events.subscribe(async function (payload) {
   // https://developer.vonage.com/messaging/sms/guides/inbound-sms#anatomy-of-an-inbound-message
@@ -33,7 +33,7 @@ export const handler = arc.events.subscribe(async function (payload) {
     updatedAt: Date.now(),
   };
 
-  if (text.startsWith('reset')) {
+  if (text.toLowerCase().startsWith('reset')) {
     reply = 'Banner message reset.';
   } else {
     bannerThing.data = payload;
