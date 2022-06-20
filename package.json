@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "start": "npx arc sandbox"
+  },
+  "dependencies": {
+    "@architect/architect": "^10.3.3",
+    "@architect/functions": "^5.1.0"
+  }
+}
