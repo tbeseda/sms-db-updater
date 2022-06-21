@@ -1,4 +1,16 @@
 {
+  "name": "sms-dynamo-vonage",
+  "version": "0.0.1",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tbeseda/sms-dynamo-vonage.git"
+  },
+  "author": "tbeseda",
+  "bugs": {
+    "url": "https://github.com/tbeseda/sms-dynamo-vonage/issues"
+  },
+  "homepage": "https://github.com/tbeseda/sms-dynamo-vonage#readme",
   "scripts": {
     "start": "npx arc sandbox"
   },
