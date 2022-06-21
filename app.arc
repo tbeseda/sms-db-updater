@@ -6,8 +6,7 @@ runtime nodejs16.x
 architecture arm64
 
 @events
-inbound-sms
-outbound-sms
+new-sms
 
 @http
 get /
