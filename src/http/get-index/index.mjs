@@ -1,5 +1,4 @@
 import arc from '@architect/functions';
-import stylesheet from './stylesheet.mjs';
 
 export const handler = arc.http.async(async function () {
   const client = await arc.tables();
@@ -14,7 +13,7 @@ export const handler = arc.http.async(async function () {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SMS to Dynamo</title>
-    <style>${stylesheet}</style>
+    <link rel="stylesheet" href="/_static/styles.css">
   </head>
   <body>
     ${banner?.data?.text ?
@@ -22,8 +21,13 @@ export const handler = arc.http.async(async function () {
         : ''
       }
 
-    <h1>Welcome to my site</h1>
-    <p>Lorem ipsum</p>
+    <main>
+      <h1>Welcome!</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <h2>About</h2>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </main>
 
     <details>
       <summary>Banner data</summary>
