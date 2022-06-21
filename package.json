@@ -5,6 +5,6 @@
   "dependencies": {
     "@architect/architect": "^10.3.3",
     "@architect/functions": "^5.1.0",
-    "@vonage/server-sdk": "^2.11.1"
+    "node-fetch": "^3.2.6"
   }
 }

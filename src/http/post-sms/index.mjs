@@ -11,7 +11,7 @@ async function http(request) {
     // background job to update banner message
     await arc.events.publish({
       name: 'inbound-sms',
-      payload: { from, text },
+      payload: { from, ...message },
     });
   }
 
