@@ -1,7 +1,7 @@
 const arc = require('@architect/functions');
 
 const { KNOWN_PHONES } = process.env;
-const ALLOWED = new Set(KNOWN_PHONES?.split(','));
+const ALLOWED = KNOWN_PHONES ? new Set(KNOWN_PHONES.split(',')) : new Set();
 
 async function http(request) {
   // https://developer.vonage.com/api/sms#webhooks

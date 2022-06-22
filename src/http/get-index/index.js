@@ -16,7 +16,7 @@ async function handler() {
     <link rel="stylesheet" href="/_static/styles.css">
   </head>
   <body>
-    ${banner?.data?.text ?
+    ${banner && banner.data && banner.data.text ?
         `<h1 class="banner">${banner.data.text}</h1>`
         : ''
       }
