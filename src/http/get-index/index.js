@@ -1,6 +1,6 @@
-import arc from '@architect/functions';
+const arc = require('@architect/functions');
 
-export const handler = arc.http.async(async function () {
+async function handler() {
   const client = await arc.tables();
   const things = client.things;
   const banner = await things.get({ thingID: 'site:BANNER' });
@@ -37,4 +37,6 @@ export const handler = arc.http.async(async function () {
 </html>
       `,
   };
-});
+}
+
+exports.handler = arc.http.async(handler);

@@ -1,4 +1,4 @@
-import arc from '@architect/functions';
+const arc = require('@architect/functions');
 
 const { KNOWN_PHONES } = process.env;
 const ALLOWED = new Set(KNOWN_PHONES?.split(','));
@@ -24,4 +24,4 @@ async function http(request) {
   };
 }
 
-export const handler = arc.http.async(http);
+exports.handler = arc.http.async(http);

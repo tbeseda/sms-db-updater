@@ -1,12 +1,11 @@
-import arc from '@architect/functions';
-import fetch from 'node-fetch';
+const arc = require('@architect/functions');
+const { default: fetch } = require('node-fetch'); // v2 because CJS
 
 const {
   VONAGE_API_KEY: apiKey,
   VONAGE_API_SECRET: apiSecret,
-  VONAGE_NUMBER,
+  VONAGE_NUMBER: sender,
 } = process.env;
-const sender = VONAGE_NUMBER?.trim();
 
 async function subscriber(payload) {
   // https://developer.vonage.com/api/sms#webhooks
@@ -60,4 +59,4 @@ async function subscriber(payload) {
   return;
 }
 
-export const handler = arc.events.subscribe(subscriber);
+exports.handler = arc.events.subscribe(subscriber);
