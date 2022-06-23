@@ -1,5 +1,5 @@
 const arc = require('@architect/functions');
-const allowed = 'process.env.KNOWN_PHONES';
+const allowed = '13039996262';
 
 async function http(request) {
   // https://developer.vonage.com/api/sms#webhooks
