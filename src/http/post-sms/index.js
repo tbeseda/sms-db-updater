@@ -1,5 +1,5 @@
 const arc = require('@architect/functions');
-const allowed = '13039996262';
+const allowed = process.env.KNOWN_PHONES;
 
 async function http(request) {
   // https://developer.vonage.com/api/sms#webhooks
@@ -7,6 +7,7 @@ async function http(request) {
   const from = message.msisdn;
 
   if (allowed && from && allowed.indexOf(from) >= 0) {
+    console.log('Trying to publish a "new-sms" event');
     // background job to update banner message
     await arc.events.publish({
       name: 'new-sms',
