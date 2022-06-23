@@ -1,12 +1,10 @@
 module.exports = {
-  data: [
+  things: [
     {
-      scopeID: 'things',
-      dataID: 'site:BANNER',
-      value: {
-        data: { text: 'An example banner message 🌱' },
-        updatedAt: Date.now(),
-      },
+      thingID: 'site:BANNER',
+      data: { text: 'An example banner message 🌱' },
+      updatedAt: Date.now(),
+
     },
   ],
 };

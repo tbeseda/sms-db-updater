@@ -1,6 +1,6 @@
 {
   "name": "sms-dynamo-vonage",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "",
   "repository": {
     "type": "git",
@@ -15,11 +15,11 @@
     "start": "npx arc sandbox"
   },
   "dependencies": {
-    "@architect/functions": "^4.1.2",
+    "@architect/functions": "^5.2.0-RC.1",
     "@begin/data": "^4.0.0",
-    "node-fetch": "^2.6.7"
+    "node-fetch": "^3.2.6"
   },
   "devDependencies": {
-    "@architect/architect": "^9.5.4"
+    "@architect/architect": "^10.3.3"
   }
 }

@@ -9,7 +9,9 @@ get / # root route handler
 post /sms # inbound SMS webhook
 
 @tables
-data
-  scopeID *String
-  dataID **String
-  ttl TTL
+things # a super generic table to stash stuff
+  thingID *String
+
+@aws
+runtime nodejs16.x
+architecture arm64

@@ -1,12 +1,9 @@
-const arc = require('@architect/functions');
-const data = require('@begin/data');
+import arc from '@architect/functions';
 
-async function handler() {
-  let banner = await data.get({
-    table: 'things',
-    key: 'site:BANNER',
-  });
-  banner = banner.value || null;
+async function http() {
+  const client = await arc.tables();
+  const things = client.things;
+  const banner = await things.get({ thingID: 'site:BANNER' });
 
   return {
     html: /*html*/ `
@@ -19,10 +16,11 @@ async function handler() {
     <link rel="stylesheet" href="/_static/styles.css">
   </head>
   <body>
-    ${banner && banner.data && banner.data.text ?
+    ${
+      banner?.data?.text ?
         `<h1 class="banner">${banner.data.text}</h1>`
         : ''
-      }
+    }
 
     <main>
       <h1>Welcome!</h1>
@@ -42,4 +40,4 @@ async function handler() {
   };
 }
 
-exports.handler = arc.http.async(handler);
+export const handler = arc.http.async(http);

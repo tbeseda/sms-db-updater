@@ -1,12 +1,16 @@
-const arc = require('@architect/functions');
-const allowed = process.env.KNOWN_PHONES;
+import arc from '@architect/functions';
+const { KNOWN_PHONES } = process.env;
 
 async function http(request) {
   // https://developer.vonage.com/api/sms#webhooks
   const message = request.body;
   const from = message.msisdn;
 
-  if (allowed && from && allowed.indexOf(from) >= 0) {
+  if (
+    from &&
+    KNOWN_PHONES &&
+    KNOWN_PHONES.indexOf(from) >= 0
+  ) {
     // background job to update banner message
     await arc.events.publish({
       name: 'new-sms',
@@ -18,4 +22,4 @@ async function http(request) {
   return { text: 'ty' };
 }
 
-exports.handler = arc.http.async(http);
+export const handler = arc.http.async(http);
