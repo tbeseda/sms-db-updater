@@ -1,11 +1,12 @@
 import arc from '@architect/functions';
-import fetch from 'node-fetch';
+import got from 'got';
 
 const {
   VONAGE_API_KEY: apiKey,
   VONAGE_API_SECRET: apiSecret,
-  VONAGE_NUMBER: sender,
+  VONAGE_NUMBER,
 } = process.env;
+const sender = VONAGE_NUMBER?.trim();
 
 async function subscriber(payload) {
   // https://developer.vonage.com/api/sms#webhooks
@@ -36,22 +37,19 @@ async function subscriber(payload) {
     `Sending SMS to <${from}> from <${sender}> with message: "${text}"`,
   );
 
-  const vonageResponse = await fetch(
+  const { data: vonageResult } = await got.post(
     'https://rest.nexmo.com/sms/json',
     {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({
+      form: {
         api_key: apiKey,
         api_secret: apiSecret,
         from: sender,
         to: from,
         text: reply,
-      }),
+      },
     },
-  );
+  ).json();
 
-  const vonageResult = await vonageResponse.json();
   console.log(vonageResult);
 
   return;

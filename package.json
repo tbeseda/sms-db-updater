@@ -16,8 +16,7 @@
   },
   "dependencies": {
     "@architect/functions": "^5.2.0-RC.1",
-    "@begin/data": "^4.0.0",
-    "node-fetch": "^3.2.6"
+    "got": "^12.1.0"
   },
   "devDependencies": {
     "@architect/architect": "^10.3.3"
