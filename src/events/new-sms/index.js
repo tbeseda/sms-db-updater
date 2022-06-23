@@ -1,4 +1,5 @@
 const arc = require('@architect/functions');
+const data = require('@begin/data');
 const { default: fetch } = require('node-fetch'); // v2 because CJS
 
 const {
@@ -11,10 +12,7 @@ async function subscriber(payload) {
   // https://developer.vonage.com/api/sms#webhooks
   const { msisdn: from, text } = payload;
 
-  const tables = await arc.tables();
-  const { things } = tables;
   const bannerThing = {
-    thingID: 'site:BANNER',
     data: null,
     updatedAt: Date.now(),
   };
@@ -27,7 +25,11 @@ async function subscriber(payload) {
     reply = 'Updated banner message.';
   }
 
-  await things.put(bannerThing);
+  await data.set({
+    table: 'things',
+    key: 'site:BANNER',
+    value: bannerThing,
+  });
 
   if (!apiKey || !apiSecret || !sender) {
     console.log('Vonage API key and secret are required.');

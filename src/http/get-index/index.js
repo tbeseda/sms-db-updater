@@ -1,9 +1,11 @@
 const arc = require('@architect/functions');
+const data = require('@begin/data');
 
 async function handler() {
-  const client = await arc.tables();
-  const things = client.things;
-  const banner = await things.get({ thingID: 'site:BANNER' });
+  const banner = await data.get({
+    table: 'things',
+    key: 'site:BANNER',
+  });
 
   return {
     html: /*html*/ `

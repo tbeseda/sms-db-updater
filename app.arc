@@ -9,5 +9,7 @@ get /
 post /sms
 
 @tables
-things
-  thingID *String
+data
+  scopeID *String
+  dataID **String
+  ttl TTL
