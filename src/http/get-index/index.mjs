@@ -12,8 +12,9 @@ async function http() {
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SMS to Dynamo</title>
+    <title>SMS DB Updater</title>
     <link rel="stylesheet" href="/_static/styles.css">
+    <link rel="icon" href="https://fav.farm/🌈" />
   </head>
   <body>
     ${
