@@ -15,7 +15,7 @@
     "start": "npx arc sandbox"
   },
   "dependencies": {
-    "@architect/functions": "^5.2.0-RC.1",
+    "@architect/functions": "^5.2.1",
     "got": "^12.1.0"
   },
   "devDependencies": {
