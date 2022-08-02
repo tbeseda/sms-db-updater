@@ -19,7 +19,7 @@ async function http(request) {
   }
 
   // return 200 OK ASAP
-  return { text: 'ty' };
+  return { status: 200, body: 'ty' };
 }
 
 export const handler = arc.http.async(http);

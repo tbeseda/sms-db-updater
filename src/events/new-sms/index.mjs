@@ -4,9 +4,8 @@ import got from 'got';
 const {
   VONAGE_API_KEY: apiKey,
   VONAGE_API_SECRET: apiSecret,
-  VONAGE_NUMBER,
+  VONAGE_NUMBER: sender,
 } = process.env;
-const sender = VONAGE_NUMBER?.trim();
 
 async function subscriber(payload) {
   // https://developer.vonage.com/api/sms#webhooks
@@ -29,8 +28,8 @@ async function subscriber(payload) {
 
   await things.put(bannerThing);
 
-  if (!apiKey || !apiSecret || !sender) {
-    console.log('Vonage API key and secret are required.');
+  if (!(apiKey && apiSecret && sender)) {
+    console.log('Vonage API key, secret, and number are required.');
     return;
   }
   console.log(

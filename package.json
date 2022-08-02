@@ -12,13 +12,14 @@
   },
   "homepage": "https://github.com/tbeseda/sms-dynamo-vonage#readme",
   "scripts": {
+    "deploy": "npx arc deploy",
     "start": "npx arc sandbox"
   },
   "dependencies": {
     "@architect/functions": "^5.2.1",
-    "got": "^12.1.0"
+    "got": "^12.3.0"
   },
   "devDependencies": {
-    "@architect/architect": "^10.3.3"
+    "@architect/architect": "^10.4.0-RC"
   }
 }
